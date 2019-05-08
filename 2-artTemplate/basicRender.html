@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/artTemplate.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		
+		<!-- 承载模版的容器 -->
+		<div id="container"></div>
+	</body>
+</html>
+
+<!-- type="text/html" 编辑模版 -->
+<script type="text/html" id="temp">
+	<h2>{{name}}</h2>
+	<span>{{intro}}</span>
+	<!-- 渲染标签需要加上@符号 -->
+	<p>{{@tag}}</p>
+</script>
+
+<!-- js渲染模版 -->
+<script type="text/javascript">
+	let data = {
+		name: "PH",
+		intro: "Come from HengYang HuNan",
+		tag: "<span>He is a handsome boy!</span>"
+	}
+	let myHTML = template("temp",data);
+	console.log(myHTML);
+	document.querySelector('#container').innerHTML = myHTML;
+</script>

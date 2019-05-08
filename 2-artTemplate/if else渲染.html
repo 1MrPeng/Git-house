@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/artTemplate.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="container"></div>
+	</body>
+</html>
+<script type="text/html" id="temp">
+	{{if week == 1 ||week == 2||week == 3||week == 4||week == 5}}
+		<h2>需要工作</h2>
+		{{if time >= 9 && time <=17}}
+			<p>在公司</p>
+			{{else if time <=24}}
+			<p>在家</p>
+
+		{{/if}}
+		{{else if week == 6}}
+		<h2>可能需要加班</h2>
+		{{else}}
+		<h2>放假休息</h2>
+		
+		
+	{{/if}}
+	
+	<!-- {{if week == 1 ||week == 2||week == 3||week == 4||week == 5}}
+		{{if time == 9}}
+			<p>在公司</p>
+		{{/if}}
+	{{/if}} -->
+</script>
+
+<script type="text/javascript">
+	
+	let data = {
+		week: 2,
+		time: 9
+	}
+	let myHtml = template("temp",data);
+	console.log(myHtml)
+	document.querySelector('#container').innerHTML =myHtml;
+</script>
